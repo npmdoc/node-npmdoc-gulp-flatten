@@ -1,17 +1,40 @@
 {
-    "buildNpmdoc":"gulp-flatten",
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "buildNpmdoc": "gulp-flatten",
+    "description": "api documentation for [gulp-flatten (v0.3.1)](https://github.com/armed/gulp-flatten) [![npm package](https://img.shields.io/npm/v/npmdoc-gulp-flatten.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-gulp-flatten) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-gulp-flatten.svg)](https://travis-ci.org/npmdoc/node-npmdoc-gulp-flatten)",
     "devDependencies": {
-        "gulp-flatten": "*",
         "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "gulp-flatten": "*",
         "utility2": "kaizhu256/node-utility2#alpha"
     },
-    "name":"npmdoc-gulp-flatten",
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmdoc/node-npmdoc-gulp-flatten",
+    "keywords": [
+        "documentation",
+        "gulp-flatten"
+    ],
+    "license": "MIT",
+    "main": "lib.npmdoc_gulp_flatten.js",
+    "name": "npmdoc-gulp-flatten",
+    "nameAlias": "npmdoc_gulp_flatten",
+    "nameOriginal": "npmdoc-gulp-flatten",
+    "os": [
+        "darwin",
+        "linux"
+    ],
     "repository": {
         "type": "git",
         "url": "https://github.com/npmdoc/node-npmdoc-gulp-flatten.git"
     },
     "scripts": {
-        "build-ci": "utility2 shReadmeTest build_ci.sh"
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "(set -e; npm install \"kaizhu256/node-utility2#alpha\"; utility2 shDeployHeroku)",
+        "postinstall": "if [ -f npm_scripts.sh ]; then ./npm_scripts.sh postinstall; fi",
+        "start": "(set -e; export PORT=${PORT:-8080}; utility2 start test.js)",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
     },
     "version": "0.0.1"
 }
