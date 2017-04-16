@@ -61,12 +61,73 @@
 
     <li class="apidocModuleLi"><a href="#apidoc.module.gulp-flatten">module gulp-flatten</a><ol>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-flatten.gulp-flatten">
+            function <span class="apidocSignatureSpan"></span>gulp-flatten
+            <span class="apidocSignatureSpan">(opts)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.gulp-flatten.toString">
+            function <span class="apidocSignatureSpan">gulp-flatten.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
     </ol></li>
 
 </ol></div>
 
 <div class="apidocSectionDiv">
 <h1><a href="#apidoc.module.gulp-flatten" id="apidoc.module.gulp-flatten">module gulp-flatten</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-flatten.gulp-flatten" id="apidoc.element.gulp-flatten.gulp-flatten">
+        function <span class="apidocSignatureSpan"></span>gulp-flatten
+        <span class="apidocSignatureSpan">(opts)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">gulp-flatten = function (opts) {
+  opts = opts || {};
+  opts.newPath = opts.newPath || &#x27;&#x27;;
+
+  return through2.obj(function(file, enc, next) {
+    if (!file.isDirectory()) {
+      try {
+        file.path = path.join(file.base, opts.newPath, flattenPath(file, opts));
+        this.push(file);
+      } catch (e) {
+        this.emit(&#x27;error&#x27;, new PluginError(&#x27;gulp-flatten&#x27;, e));
+      }
+    }
+    next();
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.gulp-flatten.toString" id="apidoc.element.gulp-flatten.toString">
+        function <span class="apidocSignatureSpan">gulp-flatten.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return toString;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
 
 </div>
 
